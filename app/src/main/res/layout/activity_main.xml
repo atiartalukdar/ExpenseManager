@@ -1,0 +1,75 @@
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textSize="40dp"
+         android:gravity="center"
+         android:text="@string/HowMuchDoYouWantToExpense"
+         android:id="@+id/textView" />
+
+     <EditText
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+         android:layout_marginTop="30dp"
+         android:layout_marginBottom="10dp"
+         android:textSize="35dp"
+         android:hint="Enter Ammount"
+         android:gravity="center"
+         android:inputType="number"
+         android:id="@+id/editText"
+         android:layout_gravity="center_horizontal" />
+
+     <LinearLayout
+         android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="2000"
+             android:onClick="firstButton"
+             android:id="@+id/button" />
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="5000"
+             android:onClick="secondButton"
+             android:id="@+id/button2" />
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="8000"
+             android:onClick="threeButton"
+             android:id="@+id/button3" />
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="15000"
+             android:onClick="fourthButton"
+             android:id="@+id/button4" />
+     </LinearLayout>
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="60dp"
+         android:text="@string/GoButton"
+         android:onClick="goButton"
+         android:id="@+id/GoButton"
+         android:layout_gravity="center_horizontal" />
+
+ </LinearLayout>
