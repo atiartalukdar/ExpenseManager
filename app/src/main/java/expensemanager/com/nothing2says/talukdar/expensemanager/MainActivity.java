@@ -25,15 +25,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ed = (EditText) findViewById(R.id.editText);
-
+//Checking the current date for going to next page automatically when date == 1
         int yy,mm,dd;
         final Calendar c = Calendar.getInstance();
         //  yy = c.get(Calendar.YEAR);
         //mm = c.get(Calendar.MONTH);
         dd = c.get(Calendar.DAY_OF_MONTH);
-
+//set the condition where app is started is first time or anyting, or app is started is on first time of month or not?
         SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
-
         temp = sharedPreferences.getInt("firstIncomeBalance",DEFAULT);
         if ((temp==DEFAULT)||(dd==1)){
             Toast.makeText(this, "New Month is Started", Toast.LENGTH_LONG).show();
