@@ -10,10 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     EditText ed;
-    public static final int DEFAULT = 0;
+    protected final static int DEFAULT = 0;
+    int temp = DEFAULT,currentMonthIncome = DEFAULT ;
     int income = DEFAULT;
     String firstIncomeAmmount="";
     @Override
@@ -21,6 +25,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ed = (EditText) findViewById(R.id.editText);
+
+        int yy,mm,dd;
+        final Calendar c = Calendar.getInstance();
+        //  yy = c.get(Calendar.YEAR);
+        //mm = c.get(Calendar.MONTH);
+        dd = c.get(Calendar.DAY_OF_MONTH);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
+
+        temp = sharedPreferences.getInt("firstIncomeBalance",DEFAULT);
+        if ((temp==DEFAULT)||(dd==1)){
+            Toast.makeText(this, "New Month is Started", Toast.LENGTH_LONG).show();
+            showMessage("New Month","Hey ! Please set your budget for new month");
+        }
+        else{
+            Intent intent = new Intent(MainActivity.this,addExpense.class);
+            startActivity(intent);
+        }
+
 
     }
 
