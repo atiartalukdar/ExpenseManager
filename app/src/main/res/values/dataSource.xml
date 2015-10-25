@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="initialCategory">
+        <item >Select One</item>
+        <item >Food</item>
+        <item >House Rent</item>
+        <item >Travelling</item>
+        <item >Others</item>
+
+    </string-array>
+</resources>
