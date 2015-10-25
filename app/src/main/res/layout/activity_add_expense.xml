@@ -26,7 +26,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:text="Showing the current income"
             android:id="@+id/currentBalanceTV"
             android:layout_gravity="center_horizontal" />
 
