@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,9 @@ import java.util.Calendar;
 
 public class addExpense extends AppCompatActivity {
     TextView tvMonth,tvFirstCurrentBalance;
+    EditText expenseAmmountEd,expenseNoteEd;
     Spinner ctgrySpinner;
+
     private String[] categoryString;
     private String selectedCategory="";
     protected final static int DEFAULT = 0;
@@ -29,6 +32,9 @@ public class addExpense extends AppCompatActivity {
         setContentView(R.layout.activity_add_expense);
         initialize();
         spinner();
+
+
+
         int yy,mm,dd;
         final Calendar c = Calendar.getInstance();
         //  yy = c.get(Calendar.YEAR);
@@ -77,9 +83,12 @@ public class addExpense extends AppCompatActivity {
     }
     public void initialize(){
         //initialize view
+
         ctgrySpinner = (Spinner)findViewById(R.id.categorySpinner);
         tvMonth = (TextView) findViewById(R.id.monthTV);
         tvFirstCurrentBalance = (TextView) findViewById(R.id.currentBalanceTV);
+        expenseAmmountEd= (EditText) findViewById(R.id.expenseAdd);
+        expenseNoteEd= (EditText) findViewById(R.id.noteExpense);
 
         //initialize data source
         categoryString = getResources().getStringArray(R.array.initialCategory);

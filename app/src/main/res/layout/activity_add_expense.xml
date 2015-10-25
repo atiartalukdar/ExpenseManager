@@ -80,7 +80,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Expense Ammount"
-            android:gravity="center"
             android:id="@+id/expenseAdd" />
 
         <LinearLayout
@@ -106,7 +105,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="Enter Note for this amount"
             android:id="@+id/noteExpense" />
 

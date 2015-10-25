@@ -68,20 +68,29 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         else{
-            income = Integer.parseInt(firstIncomeAmmount);
-            SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-
-            editor.putInt("firstIncomeBalance", income);
-            editor.commit();
-
+            sharedPreference(firstIncomeAmmount);
             Intent intent = new Intent(MainActivity.this,addExpense.class);
             startActivity(intent);
-
         }
+
+
+
     }
 
 
+
+
+
+
+public void sharedPreference(String ammount){
+
+        income = Integer.parseInt(ammount);
+        SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("firstIncomeBalance", income);
+        editor.commit();
+}
 
     public void showMessage(String title,String message)
     {
