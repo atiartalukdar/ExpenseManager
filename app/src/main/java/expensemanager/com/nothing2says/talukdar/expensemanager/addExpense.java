@@ -21,8 +21,8 @@ public class addExpense extends AppCompatActivity {
     EditText expenseAmmountEd,expenseNoteEd;
     Spinner ctgrySpinner;
     int income = DEFAULT;
-    MainActivity mA = new MainActivity();
-
+    //MainActivity mA = new MainActivity();
+    int count=0;
     private String[] categoryString;
     private String selectedCategory="";
     protected final static int DEFAULT = 0;
@@ -86,11 +86,17 @@ public class addExpense extends AppCompatActivity {
             Toast.makeText(this, "Please Enter All Value", Toast.LENGTH_LONG).show();
             return;
         }
+
         int amount = Integer.parseInt(expenseAmmountEd.getText().toString().trim());
         int balance = temp-amount;
+        writeSharedPreference(count,"count","countKey");
+        count = readSharedPreference("count","countKey");
+
+        writeSharedPreference(amount,"amount"+count,"key"+count);
         writeSharedPreference(balance,"myBalance","firstIncomeBanalce");
         temp = readSharedPreference("myBalance","firstIncomeBanalce");
         setCurrentBalance(temp);
+        count++;
     }
 
     //work with the spinners
