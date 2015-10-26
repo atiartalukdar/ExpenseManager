@@ -2,7 +2,7 @@
     <string name="app_name">ExpenseManager</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="HowMuchDoYouWantToExpense">How much do you want to Expense?</string>
+    <string name="HowMuchDoYouWantToSpend">How much do you want to Spend?</string>
     <string name="GoButton"> Go </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_add_expense">addExpense</string>

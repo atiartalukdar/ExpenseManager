@@ -20,6 +20,8 @@ public class addExpense extends AppCompatActivity {
     TextView tvMonth,tvFirstCurrentBalance;
     EditText expenseAmmountEd,expenseNoteEd;
     Spinner ctgrySpinner;
+    int income = DEFAULT;
+    MainActivity mA = new MainActivity();
 
     private String[] categoryString;
     private String selectedCategory="";
@@ -45,21 +47,51 @@ public class addExpense extends AppCompatActivity {
         tvMonth.setText(month[mm]);
 
 
+        temp = readSharedPreference("myBalance","firstIncomeBanalce");
+        setCurrentBalance(temp);
+       // SharedPreferences sharedPreferences = getSharedPreferences("myBalance", Context.MODE_PRIVATE);
+      //  temp = sharedPreferences.getInt("firstIncomeBanalce", DEFAULT);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
 
-        temp = sharedPreferences.getInt("firstIncomeBalance",DEFAULT);
-        if (temp==DEFAULT){
+    }
+
+    //set the current balance to textView
+    public void setCurrentBalance(int val){
+        if (val==DEFAULT){
             Toast.makeText(this, "Data can't Load", Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(this,"Load Successfull",Toast.LENGTH_LONG).show();
             tvFirstCurrentBalance.setText("Current Balance "+temp+"Tk");
         }
+    }
+//Read the shareadPreference data
+    public int readSharedPreference(String spName,String key){
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        return temp = sharedPreferences.getInt(key,DEFAULT);
+    }
+    public void writeSharedPreference(int ammount,String spName,String key ){
 
+        //income = Integer.parseInt(ammount);
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(key, ammount);
+        editor.commit();
     }
 
-
+    //To save expenses
+    public  void save(View view){
+        if ((expenseAmmountEd.getText().toString().trim().length()==0)||(selectedCategory.equals("Select One"))||(expenseNoteEd.getText().toString().trim().length()==0)){
+            Toast.makeText(this, "Please Enter All Value", Toast.LENGTH_LONG).show();
+            return;
+        }
+        int amount = Integer.parseInt(expenseAmmountEd.getText().toString().trim());
+        int balance = temp-amount;
+        writeSharedPreference(balance,"myBalance","firstIncomeBanalce");
+        temp = readSharedPreference("myBalance","firstIncomeBanalce");
+        setCurrentBalance(temp);
+    }
 
     //work with the spinners
     public void spinner() {
@@ -81,10 +113,12 @@ public class addExpense extends AppCompatActivity {
         );
 
     }
+
     public void initialize(){
         //initialize view
 
         ctgrySpinner = (Spinner)findViewById(R.id.categorySpinner);
+
         tvMonth = (TextView) findViewById(R.id.monthTV);
         tvFirstCurrentBalance = (TextView) findViewById(R.id.currentBalanceTV);
         expenseAmmountEd= (EditText) findViewById(R.id.expenseAdd);

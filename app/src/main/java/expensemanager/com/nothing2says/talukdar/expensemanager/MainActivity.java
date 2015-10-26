@@ -32,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
         //mm = c.get(Calendar.MONTH);
         dd = c.get(Calendar.DAY_OF_MONTH);
 //set the condition where app is started is first time or anyting, or app is started is on first time of month or not?
-        SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
-        temp = sharedPreferences.getInt("firstIncomeBalance",DEFAULT);
-        if ((temp==DEFAULT)||(dd==1)){
+
+        if ((readSharedPreference("myBalance","firstIncomeBanalce")==DEFAULT)||(dd==1)){
             Toast.makeText(this, "New Month is Started", Toast.LENGTH_LONG).show();
             showMessage("New Month","Hey ! Please set your budget for new month");
         }
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         else{
-            sharedPreference(firstIncomeAmmount);
+            writeSharedPreference(firstIncomeAmmount,"myBalance","firstIncomeBanalce");
             Intent intent = new Intent(MainActivity.this,addExpense.class);
             startActivity(intent);
         }
@@ -80,15 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+public int readSharedPreference(String spName,String key){
+    SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+    return temp = sharedPreferences.getInt(key,DEFAULT);
+}
 
-
-public void sharedPreference(String ammount){
+public void writeSharedPreference(String ammount,String spName,String key ){
 
         income = Integer.parseInt(ammount);
-        SharedPreferences sharedPreferences = getSharedPreferences("FirstIncome", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt("firstIncomeBalance", income);
+        editor.putInt(key, income);
         editor.commit();
 }
 
