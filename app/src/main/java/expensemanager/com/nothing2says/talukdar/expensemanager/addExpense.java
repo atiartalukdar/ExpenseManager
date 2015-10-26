@@ -1,6 +1,7 @@
 package expensemanager.com.nothing2says.talukdar.expensemanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -110,7 +111,10 @@ public class addExpense extends AppCompatActivity {
         setCurrentBalance(temp);
         count++;
     }
-
+public void showExpenseCl(View view){
+    Intent intent = new Intent(addExpense.this,showAllValue.class);
+    startActivity(intent);
+}
     //work with the spinners
     public void spinner() {
 

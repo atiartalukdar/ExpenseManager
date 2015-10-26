@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             Intent intent = new Intent(MainActivity.this,addExpense.class);
             startActivity(intent);
+            finish();
         }
 
 

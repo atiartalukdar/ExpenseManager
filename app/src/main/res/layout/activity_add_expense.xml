@@ -118,6 +118,7 @@
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
                 android:text="Show All Expense"
+                android:onClick="showExpenseCl"
                 android:id="@+id/showExpense" />
 
             <Button

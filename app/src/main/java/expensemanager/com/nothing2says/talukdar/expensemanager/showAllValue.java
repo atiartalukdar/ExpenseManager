@@ -15,7 +15,7 @@ TextView tv;
     int temp=DEFAULT;
     int count = DEFAULT;
     String data="";
-    String dt="";
+    String dt="initial";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,25 @@ TextView tv;
         setContentView(R.layout.activity_show_all_value);
         tv = (TextView) findViewById(R.id.showAllValue);
         count = readSharedPreference("count","countKey");
-        for(int i=0;i<count;i++){
-            dt = readSharedPreferenceString("category"+i,"select"+i)+
-                    readSharedPreference("amount"+i,"key+i")+
-                    readSharedPreferenceString("note"+i,"note"+i);
+        for(int i=0;i<=count;i++){
+            dt += readSharedPreferenceString("category"+i,"select"+i)+"   "+
+                    readSharedPreference("amount"+i,"key"+i)+"   "+
+                    readSharedPreferenceString("note"+i,"note"+i)+"   ";
         }
 
+        tv.setText(dt);
+
+    }
+
+
+    public void writeSharedPreference(String string,String spName,String key ){
+
+        //income = Integer.parseInt(ammount);
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(key, string);
+        editor.commit();
     }
 
     public int readSharedPreference(String spName,String key){
