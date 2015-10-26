@@ -20,6 +20,10 @@
             android:name=".addExpense"
             android:label="@string/title_activity_add_expense" >
         </activity>
+        <activity
+            android:name=".showAllValue"
+            android:label="@string/title_activity_show_all_value" >
+        </activity>
     </application>
 
 </manifest>

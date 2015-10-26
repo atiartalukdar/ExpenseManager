@@ -79,6 +79,15 @@ public class addExpense extends AppCompatActivity {
         editor.putInt(key, ammount);
         editor.commit();
     }
+    public void writeSharedPreference(String string,String spName,String key ){
+
+        //income = Integer.parseInt(ammount);
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(key, string);
+        editor.commit();
+    }
 
     //To save expenses
     public  void save(View view){
@@ -93,6 +102,9 @@ public class addExpense extends AppCompatActivity {
         count = readSharedPreference("count","countKey");
 
         writeSharedPreference(amount,"amount"+count,"key"+count);
+        writeSharedPreference(selectedCategory,"category"+count,"select"+count);
+        writeSharedPreference(expenseNoteEd.getText().toString(),"note"+count,"note"+count);
+
         writeSharedPreference(balance,"myBalance","firstIncomeBanalce");
         temp = readSharedPreference("myBalance","firstIncomeBanalce");
         setCurrentBalance(temp);
