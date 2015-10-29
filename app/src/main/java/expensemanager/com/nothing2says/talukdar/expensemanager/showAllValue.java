@@ -12,10 +12,8 @@ public class showAllValue extends AppCompatActivity {
 TextView tv;
     int DEFAULT = 0;
     String DEFAULT1 = "";
-    int temp=DEFAULT;
-    int count = DEFAULT;
-    String data="";
-    String dt="initial";
+    int temp=DEFAULT,count = DEFAULT;
+    String data="",dt="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,9 @@ TextView tv;
         tv = (TextView) findViewById(R.id.showAllValue);
         count = readSharedPreference("count","countKey");
 
-        for(int i=0;i<=count;i++){
-            dt += ""+i+1+". "+readSharedPreferenceString("category"+i,"select"+i)+"   "+
-                    readSharedPreference("amount"+i,"key"+i)+"   "+
+        for(int i=0;i<count;i++){
+            dt += ""+(i+1)+". "+readSharedPreferenceString("category"+i,"select"+i)+"   "+
+                    readSharedPreference("amount"+i,"key"+i)+"tk   "+
                     readSharedPreferenceString("note"+i,"note"+i)+"   \n";
         }
 

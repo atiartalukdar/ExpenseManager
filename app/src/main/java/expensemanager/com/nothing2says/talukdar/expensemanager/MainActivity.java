@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             writeSharedPreference(firstIncomeAmmount,"myBalance","firstIncomeBanalce");
+            writeSharedPreference(firstIncomeAmmount,"FirstBalance","FirstIncomeBanalce");
             Intent intent = new Intent(MainActivity.this,addExpense.class);
             startActivity(intent);
             finish();
@@ -91,7 +92,6 @@ public void writeSharedPreference(String ammount,String spName,String key ){
         income = Integer.parseInt(ammount);
         SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         editor.putInt(key, income);
         editor.commit();
 }
@@ -102,7 +102,7 @@ public void writeSharedPreference(String ammount,String spName,String key ){
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(message);
-
+        builder.setPositiveButton("Ok",null);
         builder.show();
     }
 
