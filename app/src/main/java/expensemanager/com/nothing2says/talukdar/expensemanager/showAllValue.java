@@ -23,10 +23,11 @@ TextView tv;
         setContentView(R.layout.activity_show_all_value);
         tv = (TextView) findViewById(R.id.showAllValue);
         count = readSharedPreference("count","countKey");
+
         for(int i=0;i<=count;i++){
-            dt += readSharedPreferenceString("category"+i,"select"+i)+"   "+
+            dt += ""+i+1+". "+readSharedPreferenceString("category"+i,"select"+i)+"   "+
                     readSharedPreference("amount"+i,"key"+i)+"   "+
-                    readSharedPreferenceString("note"+i,"note"+i)+"   ";
+                    readSharedPreferenceString("note"+i,"note"+i)+"   \n";
         }
 
         tv.setText(dt);

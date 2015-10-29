@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             writeSharedPreference(firstIncomeAmmount,"myBalance","firstIncomeBanalce");
             Intent intent = new Intent(MainActivity.this,addExpense.class);
             startActivity(intent);
+            finish();
         }
 
 

@@ -80,6 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Expense Ammount"
+            android:inputType="number"
             android:id="@+id/expenseAdd" />
 
         <LinearLayout

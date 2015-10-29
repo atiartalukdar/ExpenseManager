@@ -50,8 +50,7 @@ public class addExpense extends AppCompatActivity {
 
         temp = readSharedPreference("myBalance","firstIncomeBanalce");
         setCurrentBalance(temp);
-       // SharedPreferences sharedPreferences = getSharedPreferences("myBalance", Context.MODE_PRIVATE);
-      //  temp = sharedPreferences.getInt("firstIncomeBanalce", DEFAULT);
+
 
 
     }
