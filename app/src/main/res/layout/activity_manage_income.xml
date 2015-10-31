@@ -1,0 +1,59 @@
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:text="Manage Your Income"
+         android:id="@+id/textView3" />
+
+     <EditText
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:hint="Income Ammount"
+         android:id="@+id/incomeAmountED" />
+
+     <EditText
+         android:layout_width="match_parent"
+         android:gravity="center"
+         android:hint="Note"
+         android:layout_height="wrap_content"
+         android:id="@+id/incomeAmountNoteED" />
+
+     <LinearLayout
+         android:orientation="horizontal"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="Subtract"
+             android:id="@+id/button5" />
+
+         <Button
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:text="Add"
+             android:id="@+id/button6" />
+     </LinearLayout>
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Show All Income"
+         android:layout_marginTop="30dp"
+         android:onClick="showAllIncome"
+         android:layout_gravity="center"
+         android:id="@+id/button7" />
+
+ </LinearLayout>

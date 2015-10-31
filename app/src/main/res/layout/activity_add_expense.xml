@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="Show All Income"
+                android:onClick="showAllIncome"
                 android:id="@+id/showAllIncome" />
 
             <Button
@@ -54,6 +55,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Manage Income"
+                android:onClick="manageIncome"
                 android:id="@+id/manageIncome"/>
         </LinearLayout>
 

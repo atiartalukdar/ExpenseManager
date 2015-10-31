@@ -24,6 +24,10 @@
             android:name=".showAllValue"
             android:label="@string/title_activity_show_all_value" >
         </activity>
+        <activity
+            android:name=".ManageIncome"
+            android:label="@string/title_activity_manage_income" >
+        </activity>
     </application>
 
 </manifest>
